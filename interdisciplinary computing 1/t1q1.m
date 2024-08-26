@@ -1,33 +1,32 @@
-% Define the variables.
+% Script 1: Matrix Operations
 
-a1 = 1;
-b1 = 2;
-c1 = 3;
-d1 = 0.1;
-e1 = 0.2;
-f1 = 0.3;
-g1 = 10;
-h1 = 20;
-i1 = 30;
-a2 = 4;
-b2 = 5;
-c2 = 6;
-d2 = 0.4;
-e2 = 0.5;
-f2 = 0.6;
-g2 = 40;
-h2 = 50;
-i2 = 60;
-disp(' ');
+% Create matrices A2 and B2
+A2 = [1 2 3; 0.1 0.2 0.3; 10 20 30];
+B2 = [4 5 6; 0.4 0.5 0.6; 40 50 60];
 
-% Create the A2 matrix.
+% a. Sum A2 and B2
+C2 = A2 + B2;
 
-A2 = [a1, b1, c1; d1, e1, f1; g1, h1, i1];
-disp('A2:');
-disp(A2);
+% b. Subtract B2 from A2
+D2 = A2 - B2;
 
-% Create the B2 matrix.
+% c. Multiply A2 and B2 element by element
+E2 = A2 .* B2;
 
-B2 = [a2, b2, c2; d2, e2, f2; g2, h2, i2];
-disp('B2:');
-disp(B2);
+% d. Divide A2 by B2 element by element
+F2 = A2 ./ B2;
+
+% e. Multiply A2 and B2 in matrix space
+G2 = A2 * B2;
+
+% Display results
+disp('C2 (A2 + B2):');
+disp(C2);
+disp('D2 (A2 - B2):');
+disp(D2);
+disp('E2 (A2 .* B2):');
+disp(E2);
+disp('F2 (A2 ./ B2):');
+disp(F2);
+disp('G2 (A2 * B2):');
+disp(G2);

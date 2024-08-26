@@ -1,24 +1,29 @@
-% Define the 4x4 matrix A3.
+% Script 3: Differential Equation Solver and Plotter
 
-A3 = [3, 7, -4, 12; -5, 9, 10, 2; 6, 13, 8, 11; 15, 5, 4, 1];
-disp(' ');
-disp('A3:');
-disp(A3);
+% Define the differential equation
+f = @(t, y) [y(2); 16/cos(4*t) - 16*y(1)];
 
-% Compute the minimum of each column for A3.
+% Set up initial conditions
+t0 = 0;
+y0 = [2; -4];
 
-min_values = min(A3);
+% Solve the differential equation
+tspan = [0 10];  % Adjust time span as needed
+[t, y] = ode45(f, tspan, y0);
 
-% Compute the sum of all other elements in each column for A3.
+% Plot the solution
+figure;
+plot(t, y(:,1), 'b-', 'LineWidth', 2);
+title('Solution of y'''' + 16y = 16/cos(4x)');
+xlabel('t');
+ylabel('y');
+grid on;
 
-sum_values = sum(A3) - min_values;
+% Add initial conditions to the plot
+hold on;
+plot(t0, y0(1), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
+text(t0+0.1, y0(1), ['(' num2str(t0) ',' num2str(y0(1)) ')'], 'VerticalAlignment', 'bottom');
+legend('y(t)', 'Initial Point');
 
-% Replace the minimum values in each column with the computed sums for A3.
-
-for col = 1:4
-    A3(find(A3(:, col) == min_values(col)), col) = sum_values(col);
-end
-
-disp(' ');
-disp('The new A3:');
-disp(A3);
+% Display initial conditions
+disp(['Initial conditions: y(' num2str(t0) ') = ' num2str(y0(1)) ', y''(' num2str(t0) ') = ' num2str(y0(2))]);
